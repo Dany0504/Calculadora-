@@ -47,4 +47,21 @@ public class Calculadora {
         scanner.close();
         return listaTokens;
     }
+
+    public static double evaluarPostfija(ArrayList<String> postfija) {
+        Stack<Double> pilaResultados = new Stack<>();
+
+        for (String token : postfija) {
+            if (token.matches("\\d+")) {
+                pilaResultados.push(Double.parseDouble(token)); // Añade los números a la pila
+            } else if (esOperador(token)) {
+                double operando2 = pilaResultados.pop();
+                double operando1 = pilaResultados.pop();
+                double resultado = aplicarOperador(token, operando1, operando2);
+                pilaResultados.push(resultado);
+            }
+        }
+
+        return pilaResultados.pop(); // El resultado final queda en la pila
+    }
 }
