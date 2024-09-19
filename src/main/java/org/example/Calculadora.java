@@ -64,4 +64,22 @@ public class Calculadora {
 
         return pilaResultados.pop(); // El resultado final queda en la pila
     }
+
+
+    public static double aplicarOperador(String operador, double operando1, double operando2) {
+        switch (operador) {
+            case "+":
+                return operando1 + operando2;
+            case "-":
+                return operando1 - operando2;
+            case "*":
+                return operando1 * operando2;
+            case "/":
+                return operando1 / operando2;
+            case "^":
+                return Math.pow(operando1, operando2);
+            default:
+                throw new IllegalArgumentException("Operador no válido: " + operador);
+        }
+    }
 }
