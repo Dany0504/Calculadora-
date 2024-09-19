@@ -105,4 +105,25 @@ public class Calculadora {
                 return 0;
         }
     }
+
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("Introduce una expresión aritmética en notación infija (o 'quit' para salir): ");
+            String expresionInfija = teclado.nextLine();
+
+            if (expresionInfija.equalsIgnoreCase("quit")) {
+                break;
+            }
+
+            ArrayList<String> expresionPostfija = convertirAPostfija(expresionInfija);
+            System.out.println("Expresión en notación postfija: " + expresionPostfija);
+
+            double resultado = evaluarPostfija(expresionPostfija);
+            System.out.println("Resultado: " + resultado);
+        }
+
+        teclado.close();
+    }
 }
