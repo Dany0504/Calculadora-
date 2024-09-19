@@ -86,4 +86,8 @@ public class Calculadora {
     public static boolean esOperador(String token) {
         return token.equals("+") || token.equals("-") || token.equals("*") || token.equals("/") || token.equals("^");
     }
+
+    public static boolean tieneMayorPrioridad(String op1, String op2) {
+        return obtenerPrecedencia(op1) >= obtenerPrecedencia(op2);
+    }
 }
