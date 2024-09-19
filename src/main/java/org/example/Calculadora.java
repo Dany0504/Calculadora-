@@ -82,4 +82,8 @@ public class Calculadora {
                 throw new IllegalArgumentException("Operador no válido: " + operador);
         }
     }
+
+    public static boolean esOperador(String token) {
+        return token.equals("+") || token.equals("-") || token.equals("*") || token.equals("/") || token.equals("^");
+    }
 }
