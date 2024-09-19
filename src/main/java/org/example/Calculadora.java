@@ -90,4 +90,19 @@ public class Calculadora {
     public static boolean tieneMayorPrioridad(String op1, String op2) {
         return obtenerPrecedencia(op1) >= obtenerPrecedencia(op2);
     }
+
+    public static int obtenerPrecedencia(String operador) {
+        switch (operador) {
+            case "^":
+                return 3;
+            case "*":
+            case "/":
+                return 2;
+            case "+":
+            case "-":
+                return 1;
+            default:
+                return 0;
+        }
+    }
 }
